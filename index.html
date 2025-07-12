@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="utility.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&display=swap" rel="stylesheet">
+
+
+    <!-- <script src="https://kit.fontawesome.com/889f903b11.js" crossorigin="anonymous"></script> -->
+</head>
+
+<body>
+    <div class="header">
+        <img src="logo/logo.svg" width=35>
+        <img src="logo/home.svg" width=35 class="home">
+        <input type="text" placeholder="What's on your mind ?" class="search">
+        <div class="buttons-box flex">
+            <button class="btn">Install App</button>
+            <button class="btn">Sign Up</button>
+            <button class="btn">Log in</button>
+        </div>
+
+    </div>
+
+    <div class="main">
+        <div class="main-hidden">
+            <div class="right-player"></div>
+        </div>
+        <div class="left-container radius">
+            <div class="library">
+                <div class="your-library-text">
+                    <h1>Your Library</h1>
+                </div>
+                <div class="song-card">
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="right-container radius">
+
+            <div class="right-section " style="overflow-y: scroll;height: 91%; ">
+                <div class="albums">
+                    <h1>Albums</h1>
+                </div>
+                <div class="album-card-container">
+                    <div class="album-card">
+                        <img src="images/busplaylist.png" class="album-card-image" data-folder="busdriver">
+                        <h2>90's Hollywood</h2>
+                    </div>
+                    <div class="album-card">
+                        <img src="images/bangla.png" class="album-card-image" data-folder="bangla">
+                        <h2>Bangla full on</h2>
+                    </div>
+                    <div class="album-card">
+                        <img src="images/cahunach.jpg" class="album-card-image" data-folder="jhumoor">
+                        <h2> Puruliya jhumoor</h2>
+                    </div>
+                    <div class="album-card">
+                        <img src="images/img4.png" class="album-card-image" data-folder="jharkhand">
+                        <h2>Jharkhand hits</h2>
+                    </div>
+
+
+                </div>
+                <h1 class="popular-artist">Popular artist</h1>
+
+                <div class="artist-card-container">
+                    <div class="airtist-card">
+                        <img src="images/kumarsanu.jpg" class="artist" data-folder="kumarsanu">
+                        <h2 class="text-align-center">Kumar Sanu<br><span class="font">classic</span></h2>
+                    </div>
+                    <div class="airtist-card">
+                        <img src="images/sonu1.jpg" class="artist" data-folder="sonunigam">
+                        <h2 class="text-align-center">Sonu Nigam<br><span class="font">hit's</span></h2>
+                    </div>
+                    <div class="airtist-card">
+                        <img src="images/ab676161000051748de0e6e7e55d7773931ab7f4.jpeg" class="artist"
+                            data-folder="uditnarayan">
+                        <h2 class="text-align-center">Udit Narayan<br><span class="font">old retro</span></h2>
+                    </div>
+                    <div class="airtist-card">
+                        <img src="images/kisore kumar.webp" class="artist"
+                            data-folder="kisorekumar">
+                        <h2 class="text-align-center">Kisore Kumar<br><span class="font">old classic</span></h2>
+                    </div>
+
+                </div>
+
+                <div class="space"></div>
+
+            </div>
+
+            <div class="song-bar" id="song">
+                <div class="song-bar-info">
+                </div>
+                <div class="controls">
+                    <img src="logo/prev.svg" style="cursor: pointer;" id="prev-song">
+                    <img src="logo/play.svg" id="play-button" style="cursor: pointer;">
+                    <img src="logo/pause.svg" class="pause-button" id="pause-button" style="cursor: pointer;">
+                    <img src="logo/next.svg" style="cursor: pointer;" id="next-song">
+                </div>
+                <div class="progressbar">
+                    <input type="range" value="0" id="progress">
+                    <span class="duration" id="song-duration">00.00</span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.5/dist/jsmediatags.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

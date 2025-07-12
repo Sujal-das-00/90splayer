@@ -1,0 +1,14 @@
+.flex{
+    display: flex;
+    background-color: rgb(27, 26, 26);
+}
+.radius{
+    border-radius: 8px;
+}
+.font{
+    font-size: 0.9em;
+    background-color: #131212;
+}
+.text-align-center{
+    text-align: center;
+}
