@@ -31,23 +31,18 @@ const album2 = document.querySelectorAll(".artist").forEach(album => {
 })
 //getting songs fom the local machine
 async function getsongs() {
-    let a = await fetch(`song/${selectedFolder}`)
-    let response = await a.text();
-    let div = document.createElement('div');
-    div.innerHTML = response;
-    let link = div.getElementsByTagName("a");
-    for (let i = 1; i < link.length; i++) {
-        const element = link[i];
-        if (element.href.endsWith(".mp3")) {
-            songs_data.push(element.href.split(`/${selectedFolder}/`)[1])
-            songs_link.push(element.href)
-        }
-    }
-    // for (const songs of songs_link) {
-    //     console.log("test at 68", songs);
-    // }
-    return { songs_data, songs_link }
+    try {
+        const res = await fetch(`/song/${selectedFolder}/songs.json`);
+        const data = await res.json();
 
+        songs_data = data;
+        songs_link = data.map(song => `/song/${selectedFolder}/${song}`);
+        
+        return { songs_data, songs_link };
+    } catch (err) {
+        console.error("Error fetching songs:", err);
+        return { songs_data: [], songs_link: [] };
+    }
 }
 
 
