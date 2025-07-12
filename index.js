@@ -31,7 +31,7 @@ const album2 = document.querySelectorAll(".artist").forEach(album => {
 })
 //getting songs fom the local machine
 async function getsongs() {
-    let a = await fetch(`http://127.0.0.1:3000/song/${selectedFolder}`)
+    let a = await fetch(`song/${selectedFolder}`)
     let response = await a.text();
     let div = document.createElement('div');
     div.innerHTML = response;
