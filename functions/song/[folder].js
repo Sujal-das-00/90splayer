@@ -1,6 +1,6 @@
 export async function onRequest(context) {
-  const folder = context.params.folder; // e.g., "bangla"
-  const prefix = `${folder}/`;          // NOT "song/${folder}/"
+  const folder = context.params.folder;  // e.g., "bangla"
+  const prefix = `${folder}/`;           // e.g., "bangla/"
 
   const list = await context.env.MY_BUCKET.list({ prefix });
   let html = "Available Songs:<br/><br/>";
@@ -8,8 +8,7 @@ export async function onRequest(context) {
   for (const obj of list.objects) {
     if (obj.key.endsWith(".mp3")) {
       const name = obj.key.substring(prefix.length);
-      // Optional: If public, use public URL. Otherwise, build a download route.
-      html += `<a href="https://<your-r2-bucket-url>/${obj.key}" target="_blank">${name}</a><br/>`;
+      html += `<a href="https://pub-b86b85e62d694281abf1beea6f3fd311.r2.dev/${obj.key}" target="_blank">${name}</a><br/>`;
     }
   }
 
