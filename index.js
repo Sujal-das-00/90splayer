@@ -198,7 +198,7 @@ async function audioplay() {
             autoplay_time = Math.round((audio.duration - audio.currentTime) * 1000)
             console.log("play at audioplay() autoplay time ", autoplay_time);
             autoplay(autoplay_time);//transfer controll to auto play 
-        }, 1000)
+        }, 2000)
 
     } catch (err) {
         console.error("Error in audioplay:", err);
