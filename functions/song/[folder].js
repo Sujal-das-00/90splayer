@@ -1,25 +1,20 @@
 export async function onRequest(context) {
-  const folder = context.params.folder;
-  const prefix = `song/${folder}/`;
+  const folder = context.params.folder; // e.g., "bangla"
+  const prefix = `${folder}/`;          // NOT "song/${folder}/"
 
   const list = await context.env.MY_BUCKET.list({ prefix });
-  console.log("Found objects:", list.objects);
-
-  let html = "<h2>Available Songs:</h2><ul>";
-  let found = false;
+  let html = "Available Songs:<br/><br/>";
 
   for (const obj of list.objects) {
     if (obj.key.endsWith(".mp3")) {
-      found = true;
       const name = obj.key.substring(prefix.length);
-      html += `<li><a href="/r2/${obj.key}">${name}</a></li>`;
+      // Optional: If public, use public URL. Otherwise, build a download route.
+      html += `<a href="https://<your-r2-bucket-url>/${obj.key}" target="_blank">${name}</a><br/>`;
     }
   }
 
-  html += "</ul>";
-
-  if (!found) {
-    html += "<p>No .mp3 files found in the folder.</p>";
+  if (list.objects.length === 0) {
+    html += "No .mp3 files found in the folder.";
   }
 
   return new Response(html, {
