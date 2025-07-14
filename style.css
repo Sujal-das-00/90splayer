@@ -557,7 +557,10 @@ body {
         margin-left: 10px;
         width: 100px;
     }
-
+   .song-bar{
+        position: sticky;
+        bottom: 50px;
+    }
 
 }
 @media (max-width:370px){
@@ -583,10 +586,7 @@ body {
         margin-left: 2%;
         width: 80%;
     }
-     .song-bar{
-        position: sticky;
-        bottom: 10px;
-    }
+  
 
 }
 
