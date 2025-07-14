@@ -587,7 +587,7 @@ body {
 
 }
 
-@media (max-width:416px) {
+@media (max-width:440px) {
     .btn:nth-child(1) {
         display: none;
     }
