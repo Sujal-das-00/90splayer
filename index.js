@@ -14,9 +14,18 @@ let songs_link = [];
 let songs_data = []
 let duration_id = null;
 let audio = new Audio
+//hamburger aminmation
+document.querySelector(".hamburger").addEventListener("click",()=>{
+    document.querySelector(".left-container").style.left = "0"
+})
+//close botton controll
+document.querySelector(".close").addEventListener("click",()=>{
+    document.querySelector(".left-container").style.left = "-100%"
+})
 //fetching song on basis of album clicked 
 const album = document.querySelectorAll(".album-card-image").forEach(album => {
     album.addEventListener("click", () => {
+        document.querySelector(".left-container").style.left = "0"
         selectedFolder = album.dataset.folder;
         console.log("album clicked ", selectedFolder)
         startApp();
@@ -24,6 +33,7 @@ const album = document.querySelectorAll(".album-card-image").forEach(album => {
 })
 const album2 = document.querySelectorAll(".artist").forEach(album => {
     album.addEventListener("click", () => {
+        document.querySelector(".left-container").style.left = "0"
         selectedFolder = album.dataset.folder;
         console.log("album clicked ", selectedFolder)
         startApp();
@@ -182,6 +192,7 @@ function audiopause() {
     audio.pause();
     clearTimeout(autoplay_id)
     clearTimeout(timeout_id)
+    clearInterval(duration_id)
     console.log("pause clicked");
     play_button.style.display = "inline";
     pause_button.style.display = "none";
@@ -198,7 +209,7 @@ async function audioplay() {
             autoplay_time = Math.round((audio.duration - audio.currentTime) * 1000)
             console.log("play at audioplay() autoplay time ", autoplay_time);
             autoplay(autoplay_time);//transfer controll to auto play 
-        }, 2000)
+        }, 1000)
 
     } catch (err) {
         console.error("Error in audioplay:", err);
