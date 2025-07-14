@@ -583,8 +583,9 @@ body {
         margin-left: 2%;
         width: 80%;
     }
-    .song-bar{
+     .song-bar{
         position: sticky;
+        bottom: 10px;
     }
 
 }
@@ -604,7 +605,7 @@ body {
     .album-card {
         justify-content: center;
         align-items: center;
-        width: 80vw;
+        width: 70vw;
         height: 315px;
         /* border: 2px solid rebeccapurple; */
     }
